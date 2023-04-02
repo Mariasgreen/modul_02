@@ -3,7 +3,7 @@ import {addContactData, removeStorage} from './serviceStorage.js';
 import create from  './create.js';
 const {createRow} = create;
 
-const hoverRow = (allRow, logo) => {
+export const hoverRow = (allRow, logo) => {
     const text = logo.textContent;
     allRow.forEach(contact => {
       contact.addEventListener('mouseenter', () => {
@@ -16,7 +16,7 @@ const hoverRow = (allRow, logo) => {
   };
 
 
-  const modalControl = (btnAdd, formOverlay) => {
+  export const modalControl = (btnAdd, formOverlay) => {
     const openModal = () => {
       formOverlay.classList.add('is-visible');
     };
@@ -37,7 +37,7 @@ const hoverRow = (allRow, logo) => {
       closeModal,
     };
   };
-  const deleteControl = (bthDel, list) => {
+ export const deleteControl = (bthDel, list) => {
     bthDel.addEventListener('click', () => {
       document.querySelectorAll('.delete').forEach(del => {
         del.classList.toggle('is-visible');
@@ -54,11 +54,11 @@ const hoverRow = (allRow, logo) => {
   };
 
 
-  const addContactPage = (contact, list) => {
+  export const addContactPage = (contact, list) => {
     list.append(createRow(contact));
   };
 
-  const formControl = (form, list, closeModal) => {
+  export const formControl = (form, list, closeModal) => {
     form.addEventListener('submit', e => {
       e.preventDefault();
       const formData = new FormData(e.target);
@@ -70,4 +70,3 @@ const hoverRow = (allRow, logo) => {
     });
   };
 
-  export {formControl, addContactPage, deleteControl, modalControl, hoverRow}

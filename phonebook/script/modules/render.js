@@ -1,5 +1,5 @@
 import create from  './create.js';
-const {createContainer,
+const {
   createHeader,
   createFooter,
   createLogo,
