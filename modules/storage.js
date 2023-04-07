@@ -1,10 +1,5 @@
 
 
-export const setName = (key, obj) => {
-  localStorage.setItem(JSON.stringify(key), JSON.stringify(obj));
-};
-
-
 export const getStorage = (key) => (localStorage.getItem(key) ?
      JSON.parse(localStorage.getItem(key)) : []);
 
@@ -17,9 +12,9 @@ export const addTaskData = (task, key) => {
 };
 
 
-export const removeStorage = (elem, key) => {
+export const removeStorage = (thing, key) => {
   const data = getStorage(key);
-  const result = data.filter(item => item.elem !== elem);
+  const result = data.filter(item => item.thing !== thing);
   setStorage(key, result);
 };
 

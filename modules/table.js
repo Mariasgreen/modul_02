@@ -33,7 +33,7 @@ export const fixTable = (list, data) => {
 
     if (target.closest('.btn-danger')) {
       const conectId = target.closest('tr').dataset.id;
-      const conectIndex = data.findIndex(item => item.id == conectId);
+      const conectIndex = data.findIndex(item => item.id === conectId);
       data.splice(conectIndex, 1);
       target.closest('.line').remove();
       numbers(list);
