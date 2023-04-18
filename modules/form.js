@@ -14,16 +14,12 @@ export const checkInput = (form) => {
   const btnSub = document.querySelector('.btn-primary');
 
   input.addEventListener('input', () => {
-    if (input.value.length > 1) {
-      btnReset.removeAttribute('disabled');
-      btnSub.removeAttribute('disabled');
-    } else if (input.value.length === '') {
-      btnReset.disabled = true;
-      btnSub.disabled = true;
-    } else if (input.value.charAt(0) === ' ') {
+    btnReset.disabled = (input.value === '');
+    btnSub.disabled = (input.value === '');
+
+    if (input.value.charAt(0) === ' ') {
       input.value = '';
       btnReset.disabled = (input.value === '');
-      btnSub.disabled = (input.value === '');
     }
   });
 
