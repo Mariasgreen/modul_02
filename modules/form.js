@@ -49,6 +49,7 @@ export const formControl = (form, list, random) => {
     const formData = new FormData(e.target);
     const newTask = Object.fromEntries(formData);
     newTask.id = random();
+    newTask.status = false;
     addTaskPage(newTask, list);
     addTaskData(newTask, user);
     numbers(list);

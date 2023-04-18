@@ -17,8 +17,9 @@ const init = () => {
   renderTasks(list, data, list);
   formControl(form, list, random);
   checkInput(form);
-  fixTable(list, data);
   checked(list);
+  fixTable(list, data);
+  
 };
 
 

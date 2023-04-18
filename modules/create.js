@@ -77,7 +77,7 @@ const createTable = () => {
 };
 
 
-const createRow = ({id, thing, status, action}) => {
+const createRow = ({id, thing, status}) => {
   const tr = document.createElement('tr');
   tr.classList.add('line', 'table-light');
   tr.setAttribute('data-id', id);
@@ -92,7 +92,18 @@ const createRow = ({id, thing, status, action}) => {
 
   const tdstatus = document.createElement('td');
   tdstatus.classList.add('status');
-  tdstatus.textContent = 'В процессе';
+
+  const a = () => {
+    if (status === true) {
+      tdstatus.textContent = 'Выполнена';
+      tr.classList.remove('table-light');
+      tr.classList.add('table-success');
+      tddo.classList.add('text-decoration-line-through');
+    } else {
+      tdstatus.textContent = 'В процессе';
+    }
+  };
+ 
 
   const tdaction = document.createElement('td');
 
@@ -104,11 +115,11 @@ const createRow = ({id, thing, status, action}) => {
   const button2 = document.createElement('button');
   button2.classList.add('btn', 'btn-success');
   button2.textContent = 'Завершить';
-
+  button2.dataset.id = id;
 
   tdaction.append(button1, button2);
   tr.append(tdnumber, tddo, tdstatus, tdaction);
-
+  a();
   return tr;
 };
 
